@@ -8,8 +8,8 @@ interface Teacher {
     [propName: string]: any;
 }
 
-// Directors interface that extends Teacher
-interface Directors extends Teacher {
+// Director interface that extends Teacher
+interface Director extends Teacher {
     numberOfReports: number;
 }
 
@@ -24,8 +24,8 @@ const teacher3: Teacher = {
 
 console.log('Teacher Object:', teacher3);
 
-// Example implementation for Directors
-const director1: Directors = {
+// Example implementation for Director
+const director1: Director = {
     firstName: 'John',
     lastName: 'Doe',
     location: 'London',
