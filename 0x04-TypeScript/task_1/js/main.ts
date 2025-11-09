@@ -9,8 +9,8 @@ interface StudentInterface {
   displayName(): string;
 }
 
-// Class implementation
-class StudentClass implements StudentInterface {
+// Class implementation - note the lowercase 's' in studentClass
+class studentClass implements StudentInterface {
   private firstName: string;
   private lastName: string;
 
@@ -20,7 +20,7 @@ class StudentClass implements StudentInterface {
   }
 
   workOnHomework(): string {
-    return "currently working";
+    return "Currently working";
   }
 
   displayName(): string {
@@ -29,7 +29,4 @@ class StudentClass implements StudentInterface {
 }
 
 // This ensures the constructor matches the interface
-const StudentClassConstructor: StudentConstructor = StudentClass;
-
-// Export for use in other files if needed
-export { StudentClass, StudentConstructor, StudentInterface };
+const StudentClassConstructor: StudentConstructor = studentClass;
