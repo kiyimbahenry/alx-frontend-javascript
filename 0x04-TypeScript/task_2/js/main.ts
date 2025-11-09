@@ -27,11 +27,17 @@ class Director implements DirectorInterface {
   }
 }
 
-// Teacher class implementing TeacherInterface
-class Teacher implements TeacherInterface {
-  workFromHome(): string {
-    return "Cannot work from home";
+// String literal type for subjects
+type Subjects = 'Math' | 'History';
+
+// Function to teach class based on subject - UPDATED VERSION
+function teachClass(todayClass:Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
   }
+}
 
   getCoffeeBreak(): string {
     return "Cannot have a break";
