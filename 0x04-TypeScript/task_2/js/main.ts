@@ -51,12 +51,12 @@ function createEmployee(salary: number | string): Director | Teacher {
 }
 
 // Type predicate function to check if employee is Director
-function isDirector(employee: Director | Teacher): employee is Director {
-  return employee instanceof Director;
+export function isDirector(employee: Director | Teacher): employee is Director {
+  return (employee as Director).workDirectorTasks !== undefined;
 }
 
 // Function to execute work based on employee type
-function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: Director | Teacher): string {
   if (isDirector(employee)) {
     return employee.workDirectorTasks();
   } else {
@@ -64,8 +64,22 @@ function executeWork(employee: Director | Teacher): string {
   }
 }
 
-// Test the new functions (optional - for verification)
-console.log(executeWork(createEmployee(200)));
-// Expected: "Getting to work"
-console.log(executeWork(createEmployee(1000)));
-// Expected: "Getting to director tasks"
+// String literal type for subjects
+type Subjects = 'Math' | 'History';
+
+// Function to teach class based on subject
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  }
+  // This should never happen due to the type, but for completeness
+  return '';
+}
+
+// Test the new function (optional)
+console.log(teachClass('Math'));
+// Expected: "Teaching Math"
+console.log(teachClass('History'));
+// Expected: "Teaching History"
